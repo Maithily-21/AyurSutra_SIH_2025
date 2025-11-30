@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Layout/Header'
 import Footer from '../components/Layout/Footer'
 import './Home.css'
+import doshaImage from '../Assets/dosha.png';
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0)
@@ -19,29 +20,42 @@ const Home = () => {
     <div className="home-page">
       <Header />
       <main className="home-main">
-        {/* Hero Section */}
+        
         <section className="hero-section">
-          <div className="hero-content">
-            <div className="home-title-section">
-              <div className="title-icon-box">
-                <span className="title-heart">❤️</span>
+          <div className="hero-content-wrapper"> 
+            
+            <div className="hero-content">
+              <div className="home-title-section">
+                <div className="title-icon-box">
+                  <span className="title-heart">❤️</span>
+                </div>
+                <h1 className="home-title">AyurSutra</h1>
               </div>
-              <h1 className="home-title">AyurSutra</h1>
+              <p className="home-subtitle">EMPOWERING PANCHAKARMA.</p>
+              <p className="home-description">
+                A chatbot that blends ancient Ayurvedic wisdom with cutting-edge intelligence. 
+                Find your Prakriti, get rituals tailored to your dosha, and experience a new way 
+                of personalized healthcare.
+              </p>
+              <Link to="/chat" className="open-chat-button">
+                <span>Open Chat Bot</span>
+                <span className="chat-icon">💬</span>
+              </Link>
             </div>
-            <p className="home-subtitle">EMPOWERING PANCHAKARMA.</p>
-            <p className="home-description">
-              A chatbot that blends ancient Ayurvedic wisdom with cutting-edge intelligence. 
-              Find your Prakriti, get rituals tailored to your dosha, and experience a new way 
-              of personalized healthcare.
-            </p>
-            <Link to="/chat" className="open-chat-button">
-              <span>Open Chat Bot</span>
-              <span className="chat-icon">💬</span>
-            </Link>
+
+            <div className="hero-image-container">
+             <img 
+               src={doshaImage}           
+            />
+             
+              <Link to="/chat" className="chat-bot-on-graphic">
+                  Chat Bot
+              </Link>
+            </div>
+
           </div>
         </section>
 
-        {/* About Us Section */}
         <section className="about-section">
           <div className="section-container">
             <h2 className="section-title">About Us</h2>
@@ -62,7 +76,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Dosha Cards Section */}
         <section className="dosha-cards-section">
           <div className="section-container">
             <h2 className="section-title">Understanding Your Dosha</h2>
@@ -166,7 +179,6 @@ const Home = () => {
         </section>
       </main>
 
-      {/* Sticky Chatbot Button */}
       <Link 
         to="/chat" 
         className={`sticky-chat-button ${scrollY > 100 ? 'visible' : ''}`}
